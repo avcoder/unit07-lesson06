@@ -19,9 +19,9 @@ mdc: true
 # Intro to Deployment
 Unit 07 - Lesson 06
 
-- [ ] How DNS works
-- [ ] Configuring Custom Domain
-- [ ] Domain Security
+- [ ] Practice creating Pull Requests (PRs) on Github
+- [ ] Github Actions
+- [ ] Continuous Integration/Continuous Deployment (CI/CD)
 
 <div class="abs-br m-6 text-xl">
   <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
