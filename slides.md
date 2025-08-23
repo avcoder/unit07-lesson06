@@ -42,26 +42,45 @@ transition: slide-left
 - if on Mac, may need to install XCode
 
 ## Ranks in Web Dev
-- Junior, Intermediate, Senior, Tech Lead, Manager, Staff, Director, VP
+
+- Junior: 0-2 years
+- Intermediate: 3-4 years
+- Senior: 5-8 years
+- Tech Lead 8+ years
+- Manager 10+ years
+- Staff: how well can you communicate/get along with senior leadership?
+- Director
+- VP
 
 ---
 transition: slide-left
 ---
 
 # What is CI/CD?
-Continuous Integration, Continuous Delivery, Continuous Deployment
+Aims to improve speed, efficiency, and reliability of software delivery
 
+-  merge your code changes into the shared repository without breaking anything
 - Continuous Integration:
-  - Changes are committed regularly
-  - Unit tests are run
+  - Changes are committed regularly; Unit tests are run
   - Goal: identify problems early
 - Continuous Delivery:
-  - Automated build processes
-  - Software is ready for release
+  - Automated build processes to prepare for release after testing
   - Goal: always have a version of software that can be deployed
 - Continuous Deployment:
   - Fully automated deployment to prod environments
-  - rapid reliable development cycles
+
+---
+transition: slide-left
+---
+
+# CI/CD Phases
+
+- Build phase: as soon as you push code to repo, that event triggers an automatic `npm run build`, this is where the code and its dependencies are compiled into a single executable
+- Test phase: The build is tested to ensure no errors in Unit Tests, Linting, Typescript, etc.
+- Staging: The app is run in a production-like environment (ex: a temporary url) that devs can test to ensure it's ready for prod
+- Deployment: App is automatically deployed to end-users
+
+<img src="/assets/cicd2.webp" style="height: 250px" >
 
 ---
 transition: slide-left
