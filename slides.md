@@ -87,6 +87,17 @@ transition: slide-left
 transition: slide-left
 ---
 
+# Tools for CI/CD
+
+- There are several tools available for implementing CI/CD pipelines:
+  - Jenkins, Travis CI, Github Actions, Built-in CI/CD features by hosts like Netlify/Vercel
+
+<img src="/assets/cicd4.jpg" style="height: 300px">
+
+---
+transition: slide-left
+---
+
 # Github Actions
 
 - **Events** is when something happens (new push, PR, new issue etc) that triggers to run a workflow
@@ -193,11 +204,11 @@ transition: slide-left
 transition: slide-left
 ---
 
-# Exercise: How to Build a Simple CI/CD Pipeline
+# Exercise: How to Build a Simple CI/CD Pipeline (pg.1)
 
 - Go to a Github repo and click `Settings` tab at top right corner
 - Left hand menu, click Pages
-- Under Build and Deployment > under Branch > change dropdown to "main" > click Save
+- Under Build and Deployment > under Branch > change dropdown to "gh-pages" (root folder / )> click Save
 - Left hand menu, under Actions > click General > scroll down to Workflow permissions > click Read and Write permissions > click Save
 - Open code, and in root folder create `./github/workflows/deploy.yml`:
   ```yml
@@ -209,9 +220,65 @@ transition: slide-left
         - main
 
   jobs:
-    deploy:
-      runs-on: ubuntu-latest # Other options: ubuntu-22.04, windows-latest, windows-2022, macos-latest etc.        
   ```
+
+---
+transition: slide-left
+---
+
+# Exercise: How to Build a Simple CI/CD Pipeline (pg.2)
+
+```yaml
+  deploy:
+    runs-on: ubuntu-latest # Other options: ubuntu-22.04, windows-latest, windows-2022, macos-latest etc.
+    permissions:
+      contents: write
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: set up latest node env
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "node"
+
+      # Step 3: Install dependencies
+      - name: Install Deps
+        run: npm ci # Clean Install: requires package-lock.json, deletes node_modules, faster than npm i
+```
+
+---
+transition: slide-left
+---
+
+# Exercise: How to Build a Simple CI/CD Pipeline (pg.3)
+
+```yaml
+    # Step 4: Build project
+    - name: Build the site
+      run: npm run build
+
+    # Step 5: Check the files that have been checked out
+    - name: Check dist exists
+      run: |
+        echo "ls -R dist"
+        ls -R dist
+        echo "Contents of dist/index.html"
+        cat dist/index.html
+
+    # Step 6: Deploy to GitHub Pages
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }} # Context vars
+        publish_dir: ./dist # root directory that has index.html/css/js files, OR /dist
+```
+
+- Commit the code.  You should see the job running when you go back to the repo
+- Go back to home page of repo > click Deployments > click GitHub Pages link to the deployment
 
 ---
 layout: image-right
@@ -228,6 +295,7 @@ class: text-left
 - 📒 [CI/CD Handbook](https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/) 
 - 🤖 [Automate CI/CD with GH Actions](https://www.freecodecamp.org/news/automate-cicd-with-github-actions-streamline-workflow/)
 - ⚪ [github.dev web-based VS Code editor](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor)
+- 🍇 [Github Actions Marketplace](https://github.com/marketplace?type=actions)
 
 <br>
 <hr>
