@@ -276,18 +276,37 @@ transition: slide-left
 transition: slide-left
 ---
 
-# Exercise: Create some custom steps of your own
+# Exercises: Create some custom steps of your own (pg.1)
 
-1. Suppose you wanted to see the files after it ran `npm run build`. Add a step that runs any number of terminal commands to your liking.  For example:
+- Suppose you wanted to see the files after it ran `npm run build`. Add a step that runs any number of terminal commands to your liking.  For example:
   ```yaml
       - name: Show file structure after building
         run: |
           echo "ls -R dist"
           ls -R dist
   ```
-2. Now when it's redeployed, poke around until you find the logs.  Try to find the result of your terminal commands.
-3. Add a step that runs eslint successfully `npm run lint` (double check your package.json to verify that there is an entry for "lint")
-4. Add a step for running our unit tests from last class
+
+- Now when it's redeployed, poke around until you find the logs.  Try to find the result of your terminal commands.
+
+---
+transition: slide-left
+---
+
+# Exercises: Create some custom steps of your own (pg.2)
+
+- Check Node and NPM versions
+- Add a step that runs eslint successfully `npm run lint` (double check your package.json to verify that there - an entry for "lint")
+- Show all environment vars
+- Add a step for running our unit tests from last class
+- Log current date/time
+- Allow a downloadable link to the actual `dist/` from the Actions page upon inspecting logs
+  ```yaml
+  - name: Upload build artifacts
+    uses: actions/upload-artifact@v4
+    with:
+      name: production-build
+      path: dist/
+  ```
 
 
 ---
