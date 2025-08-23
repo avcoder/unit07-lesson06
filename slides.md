@@ -164,13 +164,49 @@ Most of work takes place in Steps
 transition: slide-left
 ---
 
-# CI for JS
+# YAML
+Intro to YAML syntax
 
-- Let's create a CI workflow that:
-  - Git Checks out the code
-  - Set up Node.js
-  - Build and test project
-- Optional: Matrix strategy for multiple versions of Node
+- A Dash `-` is used to define an array.  
+  ```yaml
+  colors:
+    - red
+    - green
+    - blue 
+  # JS analogy: `{ "colors": ["red", "green", "blue"] }`
+  ```
+- Don't use dashes when defining a single object, key-value pairs that aren't inside an array:
+  ```yaml
+  steps:
+  - name: Checkout code
+    uses: actions/checkout@v4
+
+  - name: Install dependencies
+    run: npm install
+  # JS analogy: const steps = [
+  #   { name: "Checkout code", uses: "actions/checkout@v4" },
+  #   { name: "Install dependencies", run: "npm install" }
+  # ];
+  ```
+---
+transition: slide-left
+---
+
+# Exercise: How to Build a Simple CI/CD Pipeline
+
+- Go to a Github repo and click `Settings` tab at top right corner
+- Left hand menu, click Pages
+- Under Build and Deployment > under Branch > change dropdown to "main" > click Save
+- Left hand menu, under Actions > click General > scroll down to Workflow permissions > click Read and Write permissions > click Save
+- Open code, and in root folder create `./github/workflows/deploy.yml`:
+  ```yml
+  name: Deploy React frontend to GitHub Pages
+
+  on:
+    push:
+      branches:
+        - main
+  ```
 
 ---
 layout: image-right
@@ -186,6 +222,7 @@ class: text-left
 - 🔒 [Role-Based Access Control in Node/Express apps](https://medium.com/@jayantchoudhary271/building-role-based-access-control-rbac-in-node-js-and-express-js-bc870ec32bdb)
 - 📒 [CI/CD Handbook](https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/) 
 - 🤖 [Automate CI/CD with GH Actions](https://www.freecodecamp.org/news/automate-cicd-with-github-actions-streamline-workflow/)
+- ⚪ [github.dev web-based VS Code editor](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor)
 
 <br>
 <hr>
