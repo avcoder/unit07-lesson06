@@ -75,7 +75,7 @@ transition: slide-left
 
 # CI/CD Phases
 
-- Build phase: as soon as you push code to repo, that event triggers an automatic `npm run build`, this is where the code and its dependencies are compiled into a single executable
+- Build phase: upon pushing code, that event triggers an automatic `npm run build` where code is compiled into a single executable (see Netlify's terminal during build)
 - Test phase: The build is tested to ensure no errors in Unit Tests, Linting, Typescript, etc.
 - Staging: The app is run in a production-like environment (ex: a temporary url) that devs can test to ensure it's ready for prod
 - Deployment: App is automatically deployed to end-users
@@ -87,15 +87,14 @@ transition: slide-left
 ---
 
 # Github Actions
-an automation framework for software workflows
 
-- Workflows are coded in yaml and stored .github/workflows/ in your repo
-- Events are the triggers (new push, PR, new issue etc) that run a workflow
-- Runners are compute layers (ex: ubuntu, windows, macos) and come with preinstalled tools, compilers.
-- Each workflows has one or more jobs.  Jobs are high-level tasks that uses steps (simple commands, scripts, actions)
-- Actions are useful for running common tasks in repeatable fashion
-- Depending on the kind of files you have in your repo, Github can suggest which starter workflow works best to build, package and deploy your code
+- **Events** is when something happens (new push, PR, new issue etc) that triggers to run a workflow
+- **Runners** are servers that runs your tasks 
+- **Jobs** is a collection of steps (simple commands, scripts, actions) executed on the same runner and are defined in a workflow.  
+- **Workflows** is a series of jobs triggered upon an event; coded in yaml; stored .github/workflows/ in your repo
+- **Github Actions** consist of events, jobs, tasks, runners, workflows.
 
+<img src="/assets/cicd3.webp" style="height: 230px">
 ---
 transition: slide-left
 ---
@@ -141,17 +140,23 @@ Most of work takes place in Steps
     - name: Checkout repository
       uses: actions/checkout@v4 # 1st step: checks out the code from branch
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 
       uses: actions/setup-node@v4 # 2nd step: sets up a project environment
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 22
         cache: 'npm'
 
     - name: Install dependencies # 3rd step: installs dependencies
-      run: npm ci
+      run: npm i
+
+    - name: Build project
+      run: npm run build
 
     - name: Run tests
       run: npm test # 4th step: runs tests, or linter, etc.
+
+    - name: Deploy
+      run: echo "Deploy step goes here"
 ```
 
 ---
