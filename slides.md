@@ -165,18 +165,16 @@ transition: slide-left
 ---
 
 # YAML
-Intro to YAML syntax; Use 2 spaces (not tabs) for one indent
+
 
 - A Dash `-` is used to define an array.  
   ```yaml
   colors:
-    - red
+    - red # Use 2 spaces (not tabs) for one indent
     - green
     - blue 
-
   # JS analogy: `{ "colors": ["red", "green", "blue"] }`
   ```
-- Don't use dashes when defining a single object, key-value pairs that aren't inside an array:
   ```yaml
   steps:
   - name: Checkout code
@@ -184,12 +182,17 @@ Intro to YAML syntax; Use 2 spaces (not tabs) for one indent
 
   - name: Install dependencies
     run: npm install
-    
   # JS analogy: const steps = [
   #   { name: "Checkout code", uses: "actions/checkout@v4" },
   #   { name: "Install dependencies", run: "npm install" }
   # ];
   ```
+- Don't use dashes when defining a single object, key-value pairs that aren't inside an array:
+```yaml
+name: My Workflow
+on: push
+```
+
 ---
 transition: slide-left
 ---
