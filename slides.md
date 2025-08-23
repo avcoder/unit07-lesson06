@@ -165,7 +165,7 @@ transition: slide-left
 ---
 
 # YAML
-Intro to YAML syntax
+Intro to YAML syntax; Use 2 spaces (not tabs) for one indent
 
 - A Dash `-` is used to define an array.  
   ```yaml
