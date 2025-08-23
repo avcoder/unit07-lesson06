@@ -261,15 +261,7 @@ transition: slide-left
     - name: Build the site
       run: npm run build
 
-    # Step 5: Check the files that have been checked out
-    - name: Check dist exists
-      run: |
-        echo "ls -R dist"
-        ls -R dist
-        echo "Contents of dist/index.html"
-        cat dist/index.html
-
-    # Step 6: Deploy to GitHub Pages
+    # Step 5: Deploy to GitHub Pages
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
@@ -279,6 +271,24 @@ transition: slide-left
 
 - Commit the code.  You should see the job running when you go back to the repo
 - Go back to home page of repo > click Deployments > click GitHub Pages link to the deployment
+
+---
+transition: slide-left
+---
+
+# Exercise: Create some custom steps of your own
+
+1. Suppose you wanted to see the files after it ran `npm run build`. Add a step that runs any number of terminal commands to your liking.  For example:
+  ```yaml
+      - name: Show file structure after building
+        run: |
+          echo "ls -R dist"
+          ls -R dist
+  ```
+2. Now when it's redeployed, poke around until you find the logs.  Try to find the result of your terminal commands.
+3. Add a step that runs eslint successfully `npm run lint` (double check your package.json to verify that there is an entry for "lint")
+4. Add a step for running our unit tests from last class
+
 
 ---
 layout: image-right
