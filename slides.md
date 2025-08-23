@@ -166,7 +166,6 @@ transition: slide-left
 
 # YAML
 
-
 - A Dash `-` is used to define an array.  
   ```yaml
   colors:
@@ -188,10 +187,7 @@ transition: slide-left
   # ];
   ```
 - Don't use dashes when defining a single object, key-value pairs that aren't inside an array:
-```yaml
-name: My Workflow
-on: push
-```
+
 
 ---
 transition: slide-left
@@ -211,6 +207,10 @@ transition: slide-left
     push:
       branches:
         - main
+
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest # Other options: ubuntu-22.04, windows-latest, windows-2022, macos-latest etc.        
   ```
 
 ---
