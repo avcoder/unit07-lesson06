@@ -88,18 +88,19 @@ transition: slide-left
 - `jobs:` - sets up job and runner to process work flow and steps to run it
 
 ```yaml
-name: Node.js CI
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read    # Allows checkout and read-only access to the repo content
+  pull-requests: read  # Required if your workflow interacts with PR metadata (e.g., checks)
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -134,19 +135,32 @@ Most of work takes place in Steps
       run: npm test # 4th step: runs tests, or linter, etc.
 ```
 
+---
+transition: slide-left
+---
+
+# CI for JS
+
+- Let's create a CI workflow that:
+  - Git Checks out the code
+  - Set up Node.js
+  - Build and test project
+- Optional: Matrix strategy for multiple versions of Node
 
 ---
 layout: image-right
 transition: slide-left
-image: /assets/addy.png
-backgroundSize: 400px 300px
+image: /assets/cicd.png
+backgroundSize: 400px 380px
 class: text-left
 ---
 
 # 10 minute break
 
 🍦 Cool Tips, Trends and Resources:
-- 👩‍💻 [NeetCode](https://www.freecodecamp.org/news/prepare-for-technical-interviews-using-neetcode-150)
+- 🔒 [Role-Based Access Control in Node/Express apps](https://medium.com/@jayantchoudhary271/building-role-based-access-control-rbac-in-node-js-and-express-js-bc870ec32bdb)
+- 📒 [CI/CD Handbook](https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/) 
+- 🤖 [Automate CI/CD with GH Actions](https://www.freecodecamp.org/news/automate-cicd-with-github-actions-streamline-workflow/)
 
 <br>
 <hr>
