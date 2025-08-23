@@ -44,11 +44,12 @@ transition: slide-left
 ## Ranks in Web Dev
 
 - Junior: 0-2 years
-- Intermediate: 3-4 years
+- Intermediate: 2-4 years
+- Intermediate II: 3-5 years
 - Senior: 5-8 years
-- Tech Lead 8+ years
-- Manager 10+ years
-- Staff: how well can you communicate/get along with senior leadership?
+- Tech Lead: 8+ years
+- Manager: Can you balance needs of Developers vs Product/Senior leadership?
+- Staff: How well can you communicate/get along/push back with senior leadership?  
 - Director
 - VP
 
