@@ -173,6 +173,7 @@ Intro to YAML syntax; Use 2 spaces (not tabs) for one indent
     - red
     - green
     - blue 
+
   # JS analogy: `{ "colors": ["red", "green", "blue"] }`
   ```
 - Don't use dashes when defining a single object, key-value pairs that aren't inside an array:
@@ -183,6 +184,7 @@ Intro to YAML syntax; Use 2 spaces (not tabs) for one indent
 
   - name: Install dependencies
     run: npm install
+    
   # JS analogy: const steps = [
   #   { name: "Checkout code", uses: "actions/checkout@v4" },
   #   { name: "Install dependencies", run: "npm install" }
