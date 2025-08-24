@@ -321,6 +321,7 @@ class: text-left
 - 🤖 [Automate CI/CD with GH Actions](https://www.freecodecamp.org/news/automate-cicd-with-github-actions-streamline-workflow/)
 - ⚪ [github.dev web-based VS Code editor](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor)
 - 🍇 [Github Actions Marketplace](https://github.com/marketplace?type=actions)
+- 🧲 [Setting up Workflow with Netlify](https://www.freecodecamp.org/news/what-is-ci-cd/#heading-setting-up-our-workflow)
 
 <br>
 <hr>
@@ -369,11 +370,13 @@ transition: slide-left
 transition: slide-left
 ---
 
-# Group Exercise: Create custom steps of your own (pg.2)
+# Group Exercise: Create custom steps of your own 
 
 - Continue experimenting by creating custom steps of your own
-- Report back any interesting steps/ways you've come up with to share with the rest of the class 
-
+- OR try using a new action from the [Github Actions Marketplace](https://github.com/marketplace)
+- Report back any interesting steps/actions you've played with to share with the rest of the class 
+  - ex: Try using [Code Coverage Action](https://github.com/marketplace/actions/vitest-coverage-report)
+  - ex: Try using [Super-Linter](https://github.com/marketplace/actions/super-linter)
 
 ---
 transition: slide-left
