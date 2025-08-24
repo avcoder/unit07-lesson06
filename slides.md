@@ -325,7 +325,7 @@ transition: slide-left
 transition: slide-left
 ---
 
-# Exercises: Create some custom steps of your own (pg.2)
+# Exercises: Custom steps (pg.2)
 
 - Check Node and NPM versions
 - Add a step that runs eslint successfully `npm run lint` (double check your package.json to verify that there - an entry for "lint")
@@ -341,6 +341,14 @@ transition: slide-left
       path: dist/
   ```
 
+---
+transition: slide-left
+---
+
+# Group Exercise: Create custom steps of your own (pg.2)
+
+- Continue experimenting by creating custom steps of your own
+- Report back any interesting steps/ways you've come up with to share with the rest of the class 
 
 ---
 layout: image-right
