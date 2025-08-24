@@ -57,6 +57,39 @@ transition: slide-left
 transition: slide-left
 ---
 
+# Steps to Force PRs on GH Repo
+
+1. Goto your Github repo
+2. Click Settings tab in top-right corner
+3. Left menu click Branches
+4. click "Add classic branch protection rule"
+5. in Branch name pattern, type: `main` (for the branch name you want to protect)
+6. Check the following options:
+  - require a pull request before merging / require approvals
+  - require status checks to pass before merging 
+  - lock branch
+  - click Create button at bottom
+- Collaborators are forced to create PRs which can be code-reviewed and approved before merging.  They can push to feature branches, but not push or merge directly to main.
+
+---
+transition: slide-left
+---
+
+# Exercise:
+
+- Clone https://github.com/avcoder/ts-exercise-01
+- I'll invite you as a collaborator
+- Make a change in the codebase
+- Try to push (you shouldn't be able to)
+- Create a PR
+- Someone else can code review it and eventually approve it after back/forth convo
+- (Try to merge PR if possible)
+- Otherwise I'll merge it
+
+---
+transition: slide-left
+---
+
 # What is CI/CD?
 Aims to improve speed, efficiency, and reliability of software delivery
 
