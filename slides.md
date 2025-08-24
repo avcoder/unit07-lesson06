@@ -75,7 +75,7 @@ transition: slide-left
 transition: slide-left
 ---
 
-# Exercise:
+# Practice the PR process
 
 - Clone https://github.com/avcoder/ts-exercise-01
 - I'll invite you as a collaborator
