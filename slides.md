@@ -377,6 +377,13 @@ transition: slide-left
 - Report back any interesting steps/actions you've played with to share with the rest of the class 
   - ex: Try using [Code Coverage Action](https://github.com/marketplace/actions/vitest-coverage-report)
   - ex: Try using [Super-Linter](https://github.com/marketplace/actions/super-linter)
+  - ex: Create a Github Release
+  ```yaml
+    - name: Create release
+      run: gh release create ${{ github.ref_name }} --notes "Auto release"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ```
 
 ---
 transition: slide-left
