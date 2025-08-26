@@ -38,7 +38,7 @@ transition: slide-left
 
 # To install for Next Class
 
-- Install Expo Go
+- Install Expo Go on your phone
 - if on Mac, may need to install XCode
 
 ## Ranks in Web Dev
